@@ -102,7 +102,7 @@ class Series4421A():
                     self.__instr_obj.parity = value
 
             self.measure = self.Measure(self.__instr_obj)
-            self.systen = self.System(self.__instr_obj)
+            self.system = self.System(self.__instr_obj)
 
         except pyvisa.VisaIOError as visaerr:
             print(f"{visaerr}")
