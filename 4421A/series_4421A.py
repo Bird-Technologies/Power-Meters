@@ -215,8 +215,45 @@ class Series4421A():
         def __init__(self, instrobj):
             self.__instr_obj = instrobj
 
-        def forward_power(self):
-            return float(self.__instr_obj.query().rstrip())
+        def firmware_version(self):
+            """
+            Reads the MCU firmware revision.
+
+            Returns:
+                str: MCU firmware revision
+            """
+            return self.__instr_obj.query("SYST:IDEN:FWR?").rstrip()
         
-        def reflected_power(self):
-            return float(self.__instr_obj.query().rstrip())
+        def model_number(self):
+            """
+            Returns the model number as given in the *IDN? response
+
+            Returns:
+                str: Instrument model number
+            """
+            return self.__instr_obj.query("SYSTem:IDENtity:MODel?").rstrip()
+        
+        def serial_number(self):
+            """
+            Returns the serial number as given in the *IDN? response
+
+            Returns:
+                str: Instrument serial number
+            """
+            return self.__instr_obj.query("SYSTem:IDENtity:SN?").rstrip()
+        
+        def preset(self):
+            """
+            Restores factory settings without changing the RS232 or LAN
+            settings.
+            """
+            return self.__instr_obj.query("SYSTem:PRESet").rstrip()
+        
+        def scpi_version(self):
+            """
+            Returns the SCPI version.
+
+            Returns:
+                str: SCPI version.
+            """
+            return self.__instr_obj.query("SYSTem:VERSion?").rstrip()
