@@ -29,13 +29,10 @@ SOFTWARE.
 
 @endverbatim
 
-@file ex001_connect_and_measure_fwd_power_raw_sockets.py
+@file ex006_fast_sample_and_log_power_lan_interface.py
  
 """
 import pyvisa as visa
-import pyvisa.constants as pyconst
-
-from matplotlib.animation import FuncAnimation
 import matplotlib.pyplot as plt
 
 import time
@@ -85,7 +82,7 @@ while(not is_at_time_Limit):
     # remove older graph
     graph.remove()
 
-    # creating a new graph or updating the graph
+    # create a new graph or updating the graph
     # plotting newer graph
     graph = plt.plot(x,y,color = 'g')[0]
     plt.xlim(x[0], x[-1])

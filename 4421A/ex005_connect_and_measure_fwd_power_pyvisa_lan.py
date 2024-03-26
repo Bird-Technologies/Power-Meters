@@ -29,7 +29,7 @@ SOFTWARE.
 
 @endverbatim
 
-@file ex001_connect_and_measure_fwd_power_raw_sockets.py
+@file ex005_connect_and_measure_fwd_power_pyvisa_lan.py
  
 """
 import pyvisa as visa
